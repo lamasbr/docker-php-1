@@ -27,6 +27,7 @@ RUN buildDeps=" \
     && docker-php-ext-install gd \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
     && docker-php-ext-install ldap \
+    && docker-php-ext-install exif \
     && pecl install memcached-2.2.0 redis \
     && docker-php-ext-enable memcached.so redis.so \
     && apt-get purge -y --auto-remove $buildDeps \
@@ -34,6 +35,6 @@ RUN buildDeps=" \
     && a2enmod rewrite
 
 # Install Composer.
-ENV COMPOSER_HOME /root/composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && ln -s $(composer config --global home) /root/composer
+ENV PATH $PATH:/root/composer/vendor/bin

@@ -25,6 +25,9 @@ For development environments, you might want to choose an [image with XDebug ins
 - [`7.1` (_7.1/Dockerfile_)](https://github.com/Chialab/docker-php/blob/master/7.1/Dockerfile)
 - [`7.1-apache` (_7.1/apache/Dockerfile_)](https://github.com/Chialab/docker-php/blob/master/7.1/apache/Dockerfile)
 - [`7.1-fpm` (_7.1/fpm/Dockerfile_)](https://github.com/Chialab/docker-php/blob/master/7.1/fpm/Dockerfile)
+- [`7.2` (_7.2/Dockerfile_)](https://github.com/Chialab/docker-php/blob/master/7.2/Dockerfile)
+- [`7.2-apache` (_7.2/apache/Dockerfile_)](https://github.com/Chialab/docker-php/blob/master/7.2/apache/Dockerfile)
+- [`7.2-fpm` (_7.2/fpm/Dockerfile_)](https://github.com/Chialab/docker-php/blob/master/7.2/fpm/Dockerfile)
 
 As you might have guessed, all tags are built on top of the corresponding tag of the official image. Not all tags are supported in order to easen manteinance.
 
@@ -35,6 +38,7 @@ in addition to those you can already find in the [official PHP image](https://hu
 - `bcmath`
 - `bz2`
 - `calendar`
+- `exif`
 - `iconv`
 - `intl`
 - `gd`
@@ -49,7 +53,7 @@ in addition to those you can already find in the [official PHP image](https://hu
 - `pgsql`
 - `redis`
 - `soap`
-- `Zend OPcache` (_PHP 5.5+_)
+- `Zend OPcache`
 - `zip`
 
 You will probably not need all this stuff. Even if having some extra extensions loaded ain't a big issue in most cases, you will very likely want to checkout this repository, remove unwanted extensions from the `Dockerfile`, and build your own image — for sometimes removing is easier than adding. 😉
